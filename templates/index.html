@@ -61,115 +61,23 @@
             </div>
         </section>
 
+
         <section id="skills" class="glass">
             <h2 class="fade-text">Skills</h2>
             <div class="skills-grid">
+                {% for category in skills_by_category %}
                 <div class="skill-category">
-                    <h3 class="fade-text">Programming Languages</h3>
+                    <h3 class="fade-text">{{ category }}</h3>
+                    {% for skill in skills_by_category[category] %}
                     <div class="skill-item">
-                        <span>Python</span>
-                        <span>⭐⭐⭐⭐⭐</span>
+                        <span>{{ skill.name }}</span>
+                        <span>{{ skill.get_stars() }}</span>
                     </div>
-                    <div class="skill-item">
-                        <span>C++</span>
-                        <span>⭐⭐⭐⭐</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Java</span>
-                        <span>⭐⭐⭐</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Javascript</span>
-                        <span>⭐⭐⭐⭐</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>HTML5</span>
-                        <span>⭐⭐⭐⭐⭐</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>CSS3</span>
-                        <span>⭐⭐⭐⭐⭐</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>R</span>
-                        <span>⭐⭐⭐⭐⭐</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>SQL</span>
-                        <span>⭐⭐⭐⭐</span>
-                    </div>
+                    {% endfor %}
                 </div>
-
-                <div class="skill-category">
-                    <h3 class="fade-text">Frameworks and Libraries</h3>
-                    <div class="skill-item">
-                        <span>Flask</span>
-                        <span>⭐⭐⭐⭐</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>jQuery</span>
-                        <span>⭐⭐⭐</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Bootstrap</span>
-                        <span>⭐⭐⭐⭐</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Django</span>
-                        <span>⭐⭐⭐</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="fade-text">Data Science and Machine Learning</h3>
-                        <div class="skill-item">
-                            <span>NumPy</span>
-                            <span>⭐⭐⭐⭐</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Pandas</span>
-                            <span>⭐⭐⭐⭐</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Scikit-learn</span>
-                            <span>⭐⭐⭐⭐</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>TensorFlow</span>
-                            <span>⭐⭐⭐⭐</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>XGBoost</span>
-                            <span>⭐⭐⭐⭐</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Matplotlib</span>
-                            <span>⭐⭐⭐⭐</span>
-                        </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="fade-text">Software Tools</h3>
-                    <div class="skill-item">
-                        <span>Git</span>
-                        <span>⭐⭐⭐⭐</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>JASP</span>
-                        <span>⭐⭐⭐⭐</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>MySQL</span>
-                        <span>⭐⭐⭐⭐</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Microsoft Excel</span>
-                        <span>⭐⭐⭐⭐⭐</span>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </section>
-
 
         <section id="contact" class="glass">
             <h2 class="fade-text">Get In Touch</h2>
