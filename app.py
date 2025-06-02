@@ -26,11 +26,16 @@ class Contact(db.Model):
     message = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-# Routes
-@app.route('/')
-def index():
-    projects = Project.query.all()
-    return render_template('index.html', projects=projects)
+class Skill(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    category = db.Column(db.String(100), nullable=False)
+    rating = db.Column(db.Integer, nullable=False)  # 1-5 stars
+    
+    def get_stars(self):
+        return '⭐' * self.rating
+
+
 
 @app.route('/contact', methods=['POST'])
 def contact():
@@ -47,11 +52,26 @@ def contact():
     except Exception as e:
         return jsonify({'success': False, 'message': 'Sorry, there was an error sending your message.'})
 
+@app.route('/')
+def index():
+    projects = Project.query.all()
+    skills = Skill.query.all()
+    
+    # Group skills by category
+    skills_by_category = {}
+    for skill in skills:
+        if skill.category not in skills_by_category:
+            skills_by_category[skill.category] = []
+        skills_by_category[skill.category].append(skill)
+    
+    return render_template('index.html', projects=projects, skills_by_category=skills_by_category)
+
 
 # Admin setup
 admin = Admin(app, name='Portfolio Admin', template_mode='bootstrap3')
 admin.add_view(ModelView(Project, db.session))
 admin.add_view(ModelView(Contact, db.session))
+admin.add_view(ModelView(Skill, db.session))
 
 if __name__ == '__main__':
     with app.app_context():
@@ -65,6 +85,18 @@ if __name__ == '__main__':
                 technologies="Python,Pandas,Matplotlib"
             )
             db.session.add(sample_project)
+            db.session.commit()
+        
+        # Add sample skills if none exist
+        if Skill.query.count() == 0:
+            skills = [
+                Skill(name="Python", category="Programming Languages", rating=5),
+                Skill(name="JavaScript", category="Programming Languages", rating=4),
+                Skill(name="Flask", category="Frameworks and Libraries", rating=4),
+                Skill(name="MySQL", category="Software Tools", rating=4),
+            ]
+            for skill in skills:
+                db.session.add(skill)
             db.session.commit()
     
     app.run(debug=True)
