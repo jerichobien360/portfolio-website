@@ -3,8 +3,9 @@
     --secondary-color: #3498db;
     --accent-color: #e74c3c;
     --text-color: #333;
-    --bg-color: #f8f9fa;
+    --bg-color: #6e6e6e;
     --white: #ffffff;
+    --black: #000000;
 }
 
 
@@ -93,8 +94,9 @@ h1, h2, h3 {
     color: var(--primary-color);
 }
 
+
 #hero h1 {
     font-size: 3rem;
     margin-bottom: 0.5rem;
-    color: var(--white);
+    color: var(--black);
 }
