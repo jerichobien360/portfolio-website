@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>Jericho - Full Stack Python Developer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <h1>Jericho</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="glass">
+            <h1>Full Stack Python Developer</h1>
+            <p>Building a scalable web applications and data solutions</p>
+        </section>
+
+        <section id="about" class="glass">
+            <h2 class="fade-text">About Me</h2>
+            <article>
+                <p class="fade-text">Aspiring <span class="text-highlight">Full Stack Python Developer</span> with an experience in data analysis and web development. Currently building expertise in <span class="text-highlight">Flask, MySQL,</span>, and modern web technologies.</p> <!--Write a brief introduction about yourself and your goals-->
+                <p class="fade-text">Passionate about creating <span class="text-highlight">scalable web applications</span> and deriving insights from data.</p>
+            </article>
+        </section>
+
+        <section id="projects" class="glass">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                {% for project in projects %}
+                <article class="project-card">
+                    <h3 class="fade-text">{{ project.title }}</h3>
+                    <p class="fade-text" style="color:black;">{{ project.description }}</p>
+                    <div class="tech-stack">
+                        {% for tech in project.technologies.split(',') %}
+                        <span class="tech">{{ tech.strip() }}</span>
+                        {% endfor %}
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="skills" class="glass">
+            <h2 class="fade-text">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="fade-text">Programming Languages</h3>
+                    <div class="skill-item">
+                        <span>Python</span>
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>C++</span>
+                        <span>⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>Java</span>
+                        <span>⭐⭐⭐</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>Javascript</span>
+                        <span>⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>HTML5</span>
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>CSS3</span>
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>R</span>
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>SQL</span>
+                        <span>⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="fade-text">Frameworks and Libraries</h3>
+                    <div class="skill-item">
+                        <span>Flask</span>
+                        <span>⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>jQuery</span>
+                        <span>⭐⭐⭐</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>Bootstrap</span>
+                        <span>⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>Django</span>
+                        <span>⭐⭐⭐</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="fade-text">Data Science and Machine Learning</h3>
+                        <div class="skill-item">
+                            <span>NumPy</span>
+                            <span>⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Pandas</span>
+                            <span>⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Scikit-learn</span>
+                            <span>⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>TensorFlow</span>
+                            <span>⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>XGBoost</span>
+                            <span>⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Matplotlib</span>
+                            <span>⭐⭐⭐⭐</span>
+                        </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="fade-text">Software Tools</h3>
+                    <div class="skill-item">
+                        <span>Git</span>
+                        <span>⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>JASP</span>
+                        <span>⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>MySQL</span>
+                        <span>⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>Microsoft Excel</span>
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="contact" class="glass">
+            <h2 class="fade-text">Get In Touch</h2>
+            <p class="fade-text" style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">
+                Ready to collaborate? Let's build something amazing together!
+            </p>
+            
+            <!-- New Contact Form -->
+            <form id="contactForm" action="/contact" method="POST" style="max-width: 600px; margin: 0 auto;">
+                <div style="margin-bottom: 1rem;">
+                    <input type="text" id="name" name="name" placeholder="Your Name" 
+                        style="width: 100%; padding: 1rem; border: none; border-radius: 10px; background: rgba(255,255,255,0.1); color: white;" required>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <input type="email" id="email" name="email" placeholder="Your Email" 
+                        style="width: 100%; padding: 1rem; border: none; border-radius: 10px; background: rgba(255,255,255,0.1); color: white;" required>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" 
+                            style="width: 100%; padding: 1rem; border: none; border-radius: 10px; background: rgba(255,255,255,0.1); color: white; resize: vertical;" required></textarea>
+                </div>
+                <div style="text-align: center;">
+                    <button type="submit" style="padding: 1rem 2rem; background: linear-gradient(45deg, var(--secondary-color), var(--accent-color)); color: white; border: none; border-radius: 25px; cursor: pointer;">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+            
+            <div id="formMessage" style="text-align: center; margin-top: 1rem; display: none;"></div>
+        </section>
+    </main>
+    
+
+    <footer class="glass">
+        <p>&copy; 2025 Jericho. All right reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
