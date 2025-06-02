@@ -29,6 +29,7 @@ body {
     position: relative;
 }
 
+
 body {
     display: grid;
     grid-template-areas:
@@ -130,8 +131,8 @@ section {
     position: relative;
     overflow: hidden;
     transition: all 0.5s ease;
-    opacity: 1; /* 0 */
-    transform: transalateY(0); /* 50px*/
+    opacity: 1;
+    transform: transalateY(50px);
 }
 
 section.visible {
